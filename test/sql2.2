@@ -1,0 +1,4 @@
+SELECT pos.title, string_agg(reports.barcode, ', ') AS barcodes, array_agg(reports.price) AS prices
+FROM reports
+JOIN pos ON reports.pos_id = pos.id
+GROUP BY pos.title;
